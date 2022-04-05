@@ -7,4 +7,3 @@ doble numero = numero + numero
 f:: Number -> Number 
 f x     = x * x
 
-
