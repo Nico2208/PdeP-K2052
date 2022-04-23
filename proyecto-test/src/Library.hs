@@ -24,13 +24,26 @@ data Persona = Persona {
     edad :: Number,
     stress :: Number,
     preferencias :: [String],
-    cantAmigues :: [String]
+    cantAmigues :: Number 
 }
 
-
+--Parte 1 Scoring
 
 scoring :: Persona -> Number
 
-scoring persona | (even . length . cantAmigues)persona = stress persona * edad persona
-                | edad persona > 40                   = (length .cantAmigues) persona * edad persona
-                | otherwise                   = ((*2) . length . nombre)persona
+scoring persona | (even . cantAmigues)persona = stress persona * edad persona
+                | edad persona > 40                    = cantAmigues persona * edad persona
+                | otherwise                            = ((*2) . length . nombre)persona
+
+
+--Parte 2 a) Nombre Firme
+
+nombreFirme :: Persona -> Bool
+
+nombreFirme = (==)'P' . head . nombre
+
+--Parte 2 b) Persona Interesante
+
+personaInteresante :: Persona -> Bool
+
+personaInteresante persona = cantAmigues persona >= 2

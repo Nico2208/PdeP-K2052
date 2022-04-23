@@ -10,9 +10,16 @@ correrTests = hspec $ do
     it "El pdepreludat se instaló correctamente" $ do
       doble 1 `shouldBe` 2
     it "Cantidad par de amigues, edad 25 y nivel de stress 10" $ do
-      scoring (Persona "Nico" 25 10 ["Juan"] ["Nico", "Juan"]) `shouldBe` 250
-
-
+      scoring (Persona "Nico" 25 10 ["Juan"] 2) `shouldBe` 250
+    it "Una persona que se llama Paulina" $ do
+      nombreFirme (Persona "Paulina" 25 10 [] 1) `shouldBe` True
+    it "Una persona que se llama Rigoberta" $ do
+      nombreFirme (Persona "Rigoberta" 25 10 [] 2) `shouldBe` False
+    it "Una persona con 1 amigo" $ do 
+      personaInteresante (Persona "a" 1 2 [] 1) `shouldBe` False
+    it "Una persona con 2 amigos" $ do
+      personaInteresante (Persona "b" 1 2 [] 2) `shouldBe` True
+    
 
 
 
