@@ -47,3 +47,5 @@ nombreFirme = (==)'P' . head . nombre
 personaInteresante :: Persona -> Bool
 
 personaInteresante persona = cantAmigues persona >= 2
+
+--Parte 3
